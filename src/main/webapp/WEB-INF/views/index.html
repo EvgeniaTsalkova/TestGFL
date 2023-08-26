@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Equation</title>
 </head>
 <body>
-$END$
+    <form th:method="POST" th:action="check">
+        <label for="equation">Enter the equation to check: </label>
+        <input th:type="text" id="equation" th:name="equation"/>
+        <input type="submit" value="Check"/>
+    </form>
 </body>
 </html>

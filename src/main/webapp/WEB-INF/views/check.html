@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Checking equation</title>
 </head>
 <body>
-$END$
+    <div th:if="${correctness}==true">
+        <h2 th:text="'Result: Equation is correct and saved.'"></h2>
+        <h3 th:text="'Count of numbers: '+ ${digitCount}"></h3>
+        <hr/>
+
+        <form th:method="POST" th:action="@{check/{id}(id=${equationId})}">
+            <label for="equation">Equation: </label>
+            <input th:type="text" id="equation" th:value="${equation}" name="equation" readonly>
+            <br/>
+            <label for="root">Enter root to check: </label>
+            <input type="text" id="root" name="root"/>
+            <input type="submit" value="Check the root"/>
+        </form>
+    </div>
+
+    <div th:if="${correctness}==false">
+        <h2 th:text="'Result: Equation is incorrect.'"></h2>
+    </div>
 </body>
 </html>

@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Root checking result</title>
 </head>
 <body>
-$END$
+<div th:if="${isRoot}">
+    <h2 th:text="${root} + ' is correct root.'"></h2>
+</div>
+
+<div th:if="!${isRoot}">
+    <h2 th:text="${root} + ' is incorrect root.'"></h2>
+</div>
 </body>
 </html>
